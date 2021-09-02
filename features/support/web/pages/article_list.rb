@@ -5,10 +5,15 @@ class ArticleListPage
     visit ""
   end
 
+  def open_search
+    find(:xpath, "//button[@id='header-search']").click
+  end
+
   def go(article)
-    execute_script 'window.scrollBy(0,100)'
-    current_article = find(:xpath, "//a[text()='" + article + "']")
-    execute_script('arguments[0].scrollIntoView(true)', current_article)
-    current_article.click
+    find(:xpath, "//a[text()='" + article + "']").click
+  end
+
+  def search
+    SearchView.new
   end
 end

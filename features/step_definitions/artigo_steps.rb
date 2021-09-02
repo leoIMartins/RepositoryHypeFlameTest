@@ -3,6 +3,8 @@ Dado("que acesso o blog") do
 end
 
 Quando("eu escolho o artigo {string}") do |artigo|
+  @art_list_page.open_search
+  @art_list_page.search.search_article(artigo)
   @art_list_page.go(artigo)
   @art_name = artigo
 end
